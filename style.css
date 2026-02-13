@@ -112,6 +112,7 @@ p {
 width: 120px;
 height: auto;
 display: inline-block;
+z-index: 5;
 }
 
 .yes-btn {
