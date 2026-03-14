@@ -21,7 +21,7 @@ envelope.addEventListener("click", () => {
 });
 
 // Logic to move the NO btn
-/*
+
 function moveNoButton() {
   const min = 150;
   const max = 200;
@@ -44,11 +44,11 @@ noBtn.addEventListener("pointerdown", function (e) {
     e.preventDefault();
     moveNoButton();
   }
-}, { passive: false }); */
+}, { passive: false }); 
 
 // Logic to make YES btn to grow
 
- let yesScale = 1;
+ /* let yesScale = 1;
 
  yesBtn.style.position = "relative"
  yesBtn.style.transformOrigin = "center center";
@@ -66,7 +66,7 @@ noBtn.addEventListener("pointerdown", function (e) {
          yesBtn.style.transform = `translate(-50%, -50%) scale(${yesScale})`;
      }
  });
-
+*/
 // YES is clicked
 
 yesBtn.addEventListener("click", () => {
