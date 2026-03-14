@@ -70,5 +70,5 @@ noBtn.addEventListener("pointerdown", function (e) {
 // YES is clicked
 
 yesBtn.addEventListener("click", () => {
-    window.location.href = "mohamed.fauzibrothers.com/test"
+    window.location.href = "/test"
 });
