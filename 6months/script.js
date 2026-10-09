@@ -28,6 +28,7 @@
     title: card.title || "",
     memory: card.memory || "",
     photo: card.photo ? new URL(card.photo, BASE).href : "",
+    pixelArt: card.pixelArt ? new URL(card.pixelArt, BASE).href : "",
     bonus: card.bonus || "",
     rarity: Number(card.rarity) || (i === all.length - 1 ? 5 : 4),
   }));
@@ -84,7 +85,7 @@
 
   function parseDate(value) {
     const match = /^(\d{4})-(\d{1,2})-(\d{1,2})$/.exec(String(value || "").trim());
-    return match ? new Date(Number(match[1]), Number(match[2]) - 1, Number(match[3])) : new Date();
+    return match ? new Date(Number(match[1]), Number(match[2]) - 1, Number(match[3])) : null;
   }
 
   const start = parseDate(CONFIG.startDate);
@@ -98,8 +99,13 @@
     $$("[data-clock]").forEach((el) => (el.textContent = clock));
   }
 
-  tick();
-  setInterval(tick, 1000);
+  if (start) {
+    tick();
+    setInterval(tick, 1000);
+  } else {
+    // No start date in config.js: leave the counter out rather than show a made-up number
+    $$(".together").forEach((el) => (el.hidden = true));
+  }
 
   /* ---------- Decoration ---------- */
 
@@ -407,8 +413,8 @@
     stars.setAttribute("aria-label", `${card.rarity} stars`);
 
     const photo = $("#reveal-photo");
-    photo.classList.toggle("is-cat", !card.photo);
-    photo.src = card.photo || (card.rarity >= 5 ? "/cat_dance.gif" : "/cat_heart.gif");
+    photo.classList.toggle("is-pixel-art", !card.photo);
+    photo.src = card.photo || card.pixelArt || (card.rarity >= 5 ? "/cat_dance.gif" : "/cat_heart.gif");
     photo.alt = card.photo ? card.title : "";
 
     $("#bonus").hidden = !card.bonus;

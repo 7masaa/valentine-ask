@@ -942,8 +942,8 @@ button:focus-visible {
   background: #e9dfd0;
 }
 
-/* No photo yet: the pixel cat stands in, in front of the moon */
-.polaroid img.is-cat {
+/* Pixel art from the site (or the cat, when a card has no picture) sits on the moon */
+.polaroid img.is-pixel-art {
   object-fit: contain;
   padding: 14%;
   image-rendering: pixelated;
