@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#1b1736" />
+    <meta property="og:title" content="A wish for you ✦" />
+    <meta property="og:description" content="Six Intertwined Fates are waiting." />
+    <title>Half a Year of Us ✦</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Pixelify+Sans:wght@400..700&family=Zen+Maru+Gothic:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Absolute paths so the page works whether it's opened as /6months or /6months/ -->
+    <link rel="stylesheet" href="/6months/style.css" />
+  </head>
+  <body>
+    <!-- Icons used around the page -->
+    <svg class="icon-defs" aria-hidden="true" focusable="false">
+      <defs>
+        <radialGradient id="fate-fill" cx="42%" cy="36%" r="68%">
+          <stop offset="0" stop-color="#fff7fd" />
+          <stop offset="0.4" stop-color="#f5a8dc" />
+          <stop offset="0.78" stop-color="#b366e6" />
+          <stop offset="1" stop-color="#7840bd" />
+        </radialGradient>
+      </defs>
+      <symbol id="i-fate" viewBox="0 0 32 32">
+        <circle cx="16" cy="16" r="13.5" fill="url(#fate-fill)" />
+        <circle cx="16" cy="16" r="13.5" fill="none" stroke="#fff3fb" stroke-width="1.5" />
+        <path d="M16 5.5 18 14l8.5 2-8.5 2-2 8.5-2-8.5L5.5 16l8.5-2z" fill="#fff" />
+        <circle cx="16" cy="16" r="2.2" fill="#ffe0f4" />
+      </symbol>
+      <symbol id="i-sparkle" viewBox="0 0 24 24">
+        <path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z" />
+      </symbol>
+      <symbol id="i-star" viewBox="0 0 24 24">
+        <path d="M12 2.4l2.95 6.1 6.65.85-4.9 4.6 1.25 6.6L12 17.3l-5.95 3.25 1.25-6.6-4.9-4.6 6.65-.85z" />
+      </symbol>
+      <symbol id="i-heart" viewBox="0 0 7 6">
+        <path d="M1 0H3V1H4V0H6V1H7V3H6V4H5V5H4V6H3V5H2V4H1V3H0V1H1Z" />
+      </symbol>
+      <symbol id="i-sound" viewBox="0 0 24 24">
+        <path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor" />
+        <path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </symbol>
+      <symbol id="i-muted" viewBox="0 0 24 24">
+        <path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor" />
+        <path d="M16.5 9.5l5 5m0-5l-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </symbol>
+      <symbol id="i-info" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2" />
+        <path d="M12 11v6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+        <circle cx="12" cy="7.6" r="1.3" fill="currentColor" />
+      </symbol>
+      <symbol id="i-history" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2" />
+        <path d="M12 7v5l3.5 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </symbol>
+    </svg>
+
+    <!-- 1. The envelope, same as the Valentine letter -->
+    <section class="screen intro" id="intro">
+      <button class="envelope" id="envelope" type="button" aria-label="Open your gift">
+        <img src="/envelope.png" alt="" />
+      </button>
+      <p class="intro-text">♡ <span data-wish-count>6</span> wishes for my <span data-her-name>Nessa</span> ♡</p>
+    </section>
+
+    <!-- 2. The wish banner -->
+    <section class="screen banner-screen" id="banner" hidden>
+      <div class="banner-layout">
+        <header class="topbar">
+          <p class="wish-heading">
+            <span class="wish-badge"><svg><use href="#i-sparkle" /></svg></span>
+            Wish
+          </p>
+          <div class="topbar-right">
+            <div class="fate-pill" role="group" aria-label="Intertwined Fates left">
+              <svg class="fate-icon" aria-hidden="true"><use href="#i-fate" /></svg>
+              <span id="fate-count">6</span>
+              <button class="plus" id="plus" type="button" aria-label="Get more Intertwined Fates">+</button>
+            </div>
+            <button class="round-btn" id="mute" type="button" aria-label="Mute sound" aria-pressed="false">
+              <svg class="when-on" aria-hidden="true"><use href="#i-sound" /></svg>
+              <svg class="when-off" aria-hidden="true"><use href="#i-muted" /></svg>
+            </button>
+          </div>
+        </header>
+
+        <div class="stage">
+          <article class="banner" aria-labelledby="banner-title">
+            <div class="banner-stars" id="banner-stars" aria-hidden="true"></div>
+            <div class="banner-copy">
+              <span class="banner-tag">Event Wish</span>
+              <h1 class="banner-title" id="banner-title" data-banner-title>Half a Year of Us</h1>
+              <p class="banner-sub"><span data-her-name>Nessa</span>'s <span data-wish-count>6</span>-Month Banner</p>
+              <span class="rate-up"><span>Probability Increased!</span></span>
+              <p class="banner-desc" id="banner-desc">
+                Six Intertwined Fates, one for every month together. A 5★ is guaranteed on the 6th wish.
+              </p>
+              <div class="together">
+                <span class="together-label">Together for</span>
+                <span class="together-days" data-days>0 days</span>
+                <span class="together-clock" data-clock>00h 00m 00s</span>
+              </div>
+            </div>
+            <div class="banner-art" aria-hidden="true">
+              <div class="moon"></div>
+              <img class="banner-cat" src="/cat_heart.gif" alt="" />
+              <div class="nameplate">
+                <span class="nameplate-label">Featured 5★</span>
+                <span class="nameplate-name">???</span>
+              </div>
+            </div>
+          </article>
+
+          <footer class="actions">
+            <div class="small-actions">
+              <button class="pill pill-small" id="details-btn" type="button" aria-label="Details">
+                <svg class="btn-icon" aria-hidden="true"><use href="#i-info" /></svg>
+                <span class="btn-text">Details</span>
+              </button>
+              <button class="pill pill-small" id="history-btn" type="button" aria-label="History">
+                <svg class="btn-icon" aria-hidden="true"><use href="#i-history" /></svg>
+                <span class="btn-text">History</span>
+              </button>
+            </div>
+            <p class="pity" id="pity" aria-live="polite">5★ guaranteed in 6 wishes</p>
+            <div class="wish-buttons">
+              <button class="pill wish-btn" id="wish1" type="button">
+                <span class="wish-label">Wish ×1</span>
+                <span class="wish-cost"><svg class="fate-icon" aria-hidden="true"><use href="#i-fate" /></svg>× 1</span>
+              </button>
+              <button class="pill wish-btn" id="wish10" type="button">
+                <span class="wish-label">Wish ×10</span>
+                <span class="wish-cost"><svg class="fate-icon" aria-hidden="true"><use href="#i-fate" /></svg>× 10</span>
+              </button>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. The shooting star -->
+    <section class="screen sky" id="sky" hidden aria-label="Wishing">
+      <div class="sky-stars" id="sky-stars" aria-hidden="true"></div>
+      <div class="track" aria-hidden="true">
+        <div class="meteor"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="burst" aria-hidden="true"></div>
+      <div class="flash" aria-hidden="true"></div>
+      <button class="skip" id="skip" type="button">Skip ▸</button>
+    </section>
+
+    <!-- 4. What she pulled -->
+    <section class="screen reveal" id="reveal" hidden>
+      <div class="rays" aria-hidden="true"></div>
+      <div class="reveal-inner">
+        <div class="reveal-text">
+          <p class="reveal-label">
+            <span id="reveal-label">Month 1</span>
+            <span class="new-badge" id="new-badge">New</span>
+          </p>
+          <h2 class="reveal-title" id="reveal-title"></h2>
+          <div class="reveal-stars" id="reveal-stars" role="img" aria-label="4 stars"></div>
+          <p class="reveal-memory" id="reveal-memory"></p>
+        </div>
+        <figure class="polaroid">
+          <img id="reveal-photo" alt="" />
+          <svg class="polaroid-heart" aria-hidden="true"><use href="#i-heart" /></svg>
+        </figure>
+        <p class="bonus" id="bonus">
+          <svg class="bonus-heart" aria-hidden="true"><use href="#i-heart" /></svg>
+          <span class="bonus-label" id="bonus-label">Bonus</span>
+          <span id="bonus-text"></span>
+        </p>
+        <p class="continue-hint">Tap anywhere to continue</p>
+      </div>
+    </section>
+
+    <!-- 5. All wishes made -->
+    <section class="screen finale" id="finale" hidden>
+      <div class="falling-hearts" id="falling-hearts" aria-hidden="true"></div>
+      <div class="finale-inner">
+        <img class="finale-cat" src="/cat_dance.gif" alt="A little black cat dancing" />
+        <h1 class="finale-title">
+          Happy <span class="nowrap"><span data-wish-count>6</span> months,</span>
+          <span class="nowrap"><span data-her-name>Nessa</span><svg class="title-heart" aria-hidden="true"><use href="#i-heart" /></svg></span>
+        </h1>
+        <p class="fifty">You're the 50/50 I never lose.</p>
+        <div class="together together-light">
+          <span class="together-label">Together for</span>
+          <span class="together-days" data-days>0 days</span>
+          <span class="together-clock" data-clock>00h 00m 00s</span>
+        </div>
+        <div class="reward">
+          <span class="reward-label">Your 5★ reward</span>
+          <p class="reward-text" id="final-reward"></p>
+        </div>
+        <h2 class="collection-heading">Your wishes</h2>
+        <div class="collection" id="collection"></div>
+        <button class="pill pill-small replay" id="replay" type="button">Wish again from the start</button>
+      </div>
+    </section>
+
+    <!-- Banner details -->
+    <dialog id="details" aria-labelledby="details-title">
+      <div class="sheet">
+        <button class="close" type="button" data-close aria-label="Close">×</button>
+        <p class="sheet-kicker">Event Wish · Details</p>
+        <h2 class="sheet-title" id="details-title" data-banner-title>Half a Year of Us</h2>
+        <div class="rule"></div>
+        <dl class="sheet-list">
+          <dt>Rate-up</dt>
+          <dd>Every memory from our first <span data-wish-count>6</span> months.</dd>
+          <dt>Guarantee</dt>
+          <dd>
+            A 5★ is guaranteed on wish <span data-wish-count>6</span>. There's no 50/50 on this banner. You're the
+            50/50 I never lose.
+          </dd>
+          <dt>Intertwined Fates</dt>
+          <dd>One for every month together. They can't be bought, only earned.</dd>
+          <dt>Duration</dt>
+          <dd>Forever.</dd>
+        </dl>
+      </div>
+    </dialog>
+
+    <!-- Wish history -->
+    <dialog id="history" aria-labelledby="history-title">
+      <div class="sheet">
+        <button class="close" type="button" data-close aria-label="Close">×</button>
+        <p class="sheet-kicker">Wish History</p>
+        <h2 class="sheet-title" id="history-title" data-banner-title>Half a Year of Us</h2>
+        <div class="rule"></div>
+        <table class="history-table">
+          <thead>
+            <tr>
+              <th scope="col">Item</th>
+              <th scope="col">Rarity</th>
+              <th scope="col">Time received</th>
+            </tr>
+          </thead>
+          <tbody id="history-rows"></tbody>
+        </table>
+      </div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <audio id="song" loop preload="none"></audio>
+
+    <script src="/6months/config.js"></script>
+    <script src="/6months/script.js"></script>
+  </body>
+</html>
